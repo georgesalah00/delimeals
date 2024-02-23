@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ThemeData theme = ThemeData(
     colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
@@ -6,28 +7,32 @@ ThemeData theme = ThemeData(
     canvasColor: const Color.fromRGBO(255, 254, 229, 1),
     fontFamily: 'RaleWay',
     textTheme: ThemeData.light().textTheme.copyWith(
-          titleSmall: const TextStyle(
-              color: Color.fromRGBO(20, 51, 51, 1),
+          titleSmall: TextStyle(
+              color: const Color.fromRGBO(20, 51, 51, 1),
               fontFamily: 'RobotoCondensed',
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w700),
-          titleMedium: const TextStyle(
+          titleMedium: TextStyle(
             fontFamily: 'RobotoCondensed',
-            fontSize: 20,
+            fontSize: 20.sp,
             fontWeight: FontWeight.w700,
           ),
-          titleLarge: const TextStyle(
+          titleLarge: TextStyle(
             fontFamily: 'RaleWay',
-            fontSize: 26,
+            fontSize: 26.sp,
             // fontWeight: FontWeight.w300,
           ),
           bodySmall: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
-          bodyMedium: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
+          bodyMedium: TextStyle(
+            color: const Color.fromRGBO(20, 51, 51, 1),
+            fontSize: 14.sp,
+            fontFamily: 'RobotoCondensed',
+          ),
           bodyLarge: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
         ),
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
         titleTextStyle: TextStyle(
-            fontSize: 30,
+            fontSize: 26.sp,
             fontWeight: FontWeight.w900,
             color: Colors.black,
             fontFamily: 'RaleWay')));

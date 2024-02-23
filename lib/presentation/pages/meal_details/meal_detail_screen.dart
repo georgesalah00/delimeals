@@ -1,5 +1,6 @@
 import 'package:delimeals/data/modles/meal/meal.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MealDetailScreen extends StatelessWidget {
   static const routeName = '/meal-detail';
@@ -30,7 +31,7 @@ class MealDetailScreen extends StatelessWidget {
   Widget _renderImage(BuildContext ctx, Meal meal) {
     final imageURL = meal.imageURL;
     return SizedBox(
-      height: 300,
+      height: 200.h,
       width: double.infinity,
       child: Image.network(
         imageURL,
@@ -64,7 +65,10 @@ class MealDetailScreen extends StatelessWidget {
       color: Theme.of(ctx).colorScheme.background,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        child: Text(ingredient),
+        child: Text(
+          ingredient,
+          style: Theme.of(ctx).textTheme.bodyMedium,
+        ),
       ),
     );
   }
@@ -73,16 +77,19 @@ class MealDetailScreen extends StatelessWidget {
     final steps = meal.steps;
     return _renderContainer(ListView.builder(
       itemCount: steps.length,
-      itemBuilder: (ctx, index) => _makeStepsShape(steps, index),
+      itemBuilder: (ctx, index) => _makeStepsShape(ctx, steps, index),
     ));
   }
 
-  Widget _makeStepsShape(List<String> steps, int i) {
+  Widget _makeStepsShape(BuildContext ctx, List<String> steps, int i) {
     return ListTile(
       leading: CircleAvatar(
         child: Text('# ${i + 1}:'),
       ),
-      title: Text(steps[i]),
+      title: Text(
+        steps[i],
+        style: Theme.of(ctx).textTheme.bodyMedium,
+      ),
     );
   }
 
@@ -90,8 +97,8 @@ class MealDetailScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.all(10),
-      height: 150,
-      width: 300,
+      height: 150.h,
+      width: 300.w,
       decoration: _ingredientsContainerDecoraion(),
       child: child,
     );
@@ -112,7 +119,7 @@ class MealDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
-        title: Text(title),
+        title: FittedBox(child: Text(title)),
       ),
       body: _buildMealDetailScreen(context, meal),
     );

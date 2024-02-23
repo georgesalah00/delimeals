@@ -21,12 +21,6 @@ class CategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle ,
-            title: const Text(
-          'Deli Meals',
-        )),
-        body: _buildGridView());
+    return _buildGridView();
   }
 }

@@ -40,7 +40,7 @@ class MealsScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
-          title: Text('$title recipes'),
+          title: Text('$title Meals'),
         ),
         body: _buildMealsScreen(context, dummyMeals));
   }

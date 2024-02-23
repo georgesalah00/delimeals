@@ -1,6 +1,7 @@
 import 'package:delimeals/data/modles/meal/meal.dart';
 import 'package:delimeals/presentation/pages/meal_details/meal_detail_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MealItem extends StatelessWidget {
   final Meal _meal;
@@ -10,17 +11,14 @@ class MealItem extends StatelessWidget {
   Widget _makeMealWidget(BuildContext ctx) {
     return InkWell(
       onTap: () => _goToMealDetailScreen(ctx),
-      splashColor: Theme.of(ctx).colorScheme.primary, 
-      child: _makeMealCard(ctx),);
+      splashColor: Theme.of(ctx).colorScheme.primary,
+      child: _makeMealCard(ctx),
+    );
   }
 
   _goToMealDetailScreen(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(
-      MealDetailScreen.routeName,
-      arguments: {
-        'meal' : _meal 
-      }
-    );
+    Navigator.of(ctx)
+        .pushNamed(MealDetailScreen.routeName, arguments: {'meal': _meal});
   }
 
   Widget _makeMealCard(BuildContext ctx) {
@@ -41,8 +39,8 @@ class MealItem extends StatelessWidget {
       children: [
         _setupMealImage(),
         Positioned(
-          bottom: 20,
-          right: 10,
+          bottom: 20.h,
+          right: 10.w,
           child: _setupMealTitle(ctx),
         ),
       ],
@@ -56,7 +54,7 @@ class MealItem extends StatelessWidget {
           topLeft: Radius.circular(15), topRight: Radius.circular(15)),
       child: Image.network(
         imageURL,
-        height: 250,
+        height: 200.h,
         width: double.infinity,
         fit: BoxFit.cover,
       ),
@@ -66,7 +64,7 @@ class MealItem extends StatelessWidget {
   Widget _setupMealTitle(BuildContext ctx) {
     final title = _meal.title;
     return Container(
-      width: 280,
+      width: 170.w,
       color: Colors.black54,
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
       child: Text(
